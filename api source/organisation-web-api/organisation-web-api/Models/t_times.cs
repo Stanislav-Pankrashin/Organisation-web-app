@@ -6,6 +6,7 @@ namespace organisation_web_api.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("dbo.t_times")]
     public partial class t_times
     {
         [Key]

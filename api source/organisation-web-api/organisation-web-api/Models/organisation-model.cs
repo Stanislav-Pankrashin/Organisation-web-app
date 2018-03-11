@@ -183,39 +183,39 @@ namespace organisation_web_api.Models
                 .Property(e => e.update_process)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<t_half_hours>()
-                .HasMany(e => e.c_group_calendar_entry)
-                .WithRequired(e => e.t_half_hours)
-                .HasForeignKey(e => e.half_hour_id_start)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<t_half_hours>()
-                .HasMany(e => e.c_group_calendar_entry1)
-                .WithRequired(e => e.t_half_hours1)
-                .HasForeignKey(e => e.half_hour_id_end)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<t_half_hours>()
-                .HasMany(e => e.c_user_calendar_entry)
-                .WithRequired(e => e.t_half_hours)
-                .HasForeignKey(e => e.half_hour_id_start)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<t_half_hours>()
-                .HasMany(e => e.c_user_calendar_entry1)
-                .WithRequired(e => e.t_half_hours1)
-                .HasForeignKey(e => e.half_hour_id_end)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<t_half_hours>()
-                .HasMany(e => e.t_times)
-                .WithOptional(e => e.t_half_hours)
-                .HasForeignKey(e => e.half_hour_id_start);
-
-            modelBuilder.Entity<t_half_hours>()
-                .HasMany(e => e.t_times1)
-                .WithOptional(e => e.t_half_hours1)
-                .HasForeignKey(e => e.half_hour_id_end);
+            // modelBuilder.Entity<t_half_hours>()
+            //     .HasMany(e => e.c_group_calendar_entry)
+            //     .WithRequired(e => e.t_half_hours)
+            //     .HasForeignKey(e => e.half_hour_id_start)
+            //     .WillCascadeOnDelete(false);
+            // 
+            // modelBuilder.Entity<t_half_hours>()
+            //     .HasMany(e => e.c_group_calendar_entry1)
+            //     .WithRequired(e => e.t_half_hours1)
+            //     .HasForeignKey(e => e.half_hour_id_end)
+            //     .WillCascadeOnDelete(false);
+            // 
+            // modelBuilder.Entity<t_half_hours>()
+            //     .HasMany(e => e.c_user_calendar_entry)
+            //     .WithRequired(e => e.t_half_hours)
+            //     .HasForeignKey(e => e.half_hour_id_start)
+            //     .WillCascadeOnDelete(false);
+            // 
+            // modelBuilder.Entity<t_half_hours>()
+            //     .HasMany(e => e.c_user_calendar_entry1)
+            //     .WithRequired(e => e.t_half_hours1)
+            //     .HasForeignKey(e => e.half_hour_id_end)
+            //     .WillCascadeOnDelete(false);
+            // 
+            // modelBuilder.Entity<t_half_hours>()
+            //     .HasMany(e => e.t_times)
+            //     .WithOptional(e => e.t_half_hours)
+            //     .HasForeignKey(e => e.half_hour_id_start);
+            // 
+            // modelBuilder.Entity<t_half_hours>()
+            //     .HasMany(e => e.t_times1)
+            //     .WithOptional(e => e.t_half_hours1)
+            //     .HasForeignKey(e => e.half_hour_id_end);
 
             modelBuilder.Entity<t_times>()
                 .Property(e => e.insert_user)

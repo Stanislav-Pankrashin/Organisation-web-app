@@ -6,13 +6,14 @@ namespace organisation_web_api.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("dbo.t_days")]
     public partial class t_days
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public t_days()
-        {
-            t_times = new HashSet<t_times>();
-        }
+        // [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        // public t_days()
+        // {
+        //     t_times = new HashSet<t_times>();
+        // }
 
         [Key]
         public int day_id { get; set; }
@@ -36,7 +37,7 @@ namespace organisation_web_api.Models
 
         public DateTime? update_datetime { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<t_times> t_times { get; set; }
+        // [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        // public virtual ICollection<t_times> t_times { get; set; }
     }
 }
