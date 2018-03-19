@@ -73,46 +73,6 @@ CREATE INDEX I_c_group_relationship_user_id ON dbo.c_group_relationship (user_id
 CREATE INDEX I_c_group_relationship_group_id ON dbo.c_group_relationship (group_id)
 GO
 
---this table links together a user and their filled out calendar
-CREATE TABLE c_user_calendar_entry (
-             calendar_id          INT IDENTITY(1,1) PRIMARY KEY,
-			 user_id              INT NOT NULL FOREIGN KEY REFERENCES dbo.s_user (user_id),
-			 half_hour_id_start   INT NOT NULL FOREIGN KEY REFERENCES dbo.t_half_hours (half_hour_id),
-			 half_hour_id_end     INT NOT NULL FOREIGN KEY REFERENCES dbo.t_half_hours (half_hour_id),
-		     insert_user          VARCHAR(40),
-		     insert_process       VARCHAR(40),
-		     insert_datetime      DATETIME,
-		     update_user          VARCHAR(40),
-		     update_process       VARCHAR(40),
-		     update_datetime      DATETIME,	
-
-)
-GO
-CREATE INDEX I_c_user_calendar_entry_user_id ON dbo.c_user_calendar_entry (user_id)
-GO
-
---this table links together a group and its allocated times
-CREATE TABLE c_group_calendar_entry (
-             calendar_id          INT IDENTITY(1,1) PRIMARY KEY,
-			 group_id             INT NOT NULL FOREIGN KEY REFERENCES dbo.c_group (group_id),
-			 half_hour_id_start   INT NOT NULL FOREIGN KEY REFERENCES dbo.t_half_hours (half_hour_id),
-			 half_hour_id_end     INT NOT NULL FOREIGN KEY REFERENCES dbo.t_half_hours (half_hour_id),
-		     insert_user          VARCHAR(40),
-		     insert_process       VARCHAR(40),
-		     insert_datetime      DATETIME,
-		     update_user          VARCHAR(40),
-		     update_process       VARCHAR(40),
-		     update_datetime      DATETIME,	
-
-)
-GO
-CREATE INDEX I_c_group_calendar_entry_user_id ON dbo.c_group_calendar_entry (group_id)
-GO
-
-
-
-
-
 --this table holds all of the slots that are to be populated in 30 min blocks over the entire week
 --this takes a range, I will need to make some sort of system that aggregates consecutive blocks to save space maybe?
 CREATE TABLE t_times (
@@ -132,3 +92,42 @@ GO
 CREATE INDEX I_t_times_day_id       ON dbo.t_times (day_id)
 CREATE INDEX I_t_times_half_hour_id_start ON dbo.t_times (half_hour_id_start)
 GO
+
+--this table links together a user and their filled out calendar
+CREATE TABLE c_user_calendar_entry (
+             calendar_id          INT IDENTITY(1,1) PRIMARY KEY,
+			 user_id              INT NOT NULL FOREIGN KEY REFERENCES dbo.s_user (user_id),
+			 time_id              INT NOT NULL FOREIGN KEY REFERENCES dbo.t_times (time_id),
+		     insert_user          VARCHAR(40),
+		     insert_process       VARCHAR(40),
+		     insert_datetime      DATETIME,
+		     update_user          VARCHAR(40),
+		     update_process       VARCHAR(40),
+		     update_datetime      DATETIME,	
+
+)
+GO
+CREATE INDEX I_c_user_calendar_entry_user_id ON dbo.c_user_calendar_entry (user_id)
+GO
+
+--this table links together a group and its allocated times
+CREATE TABLE c_group_calendar_entry (
+             calendar_id          INT IDENTITY(1,1) PRIMARY KEY,
+			 group_id             INT NOT NULL FOREIGN KEY REFERENCES dbo.c_group (group_id),
+			 time_id              INT NOT NULL FOREIGN KEY REFERENCES dbo.t_times (time_id),
+		     insert_user          VARCHAR(40),
+		     insert_process       VARCHAR(40),
+		     insert_datetime      DATETIME,
+		     update_user          VARCHAR(40),
+		     update_process       VARCHAR(40),
+		     update_datetime      DATETIME,	
+
+)
+GO
+CREATE INDEX I_c_group_calendar_entry_user_id ON dbo.c_group_calendar_entry (group_id)
+GO
+
+
+
+
+
