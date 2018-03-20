@@ -184,8 +184,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\DaysController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HalfHoursController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -194,7 +197,7 @@
     <Compile Include="Models\c_group_calendar_entry.cs" />
     <Compile Include="Models\c_group_relationship.cs" />
     <Compile Include="Models\c_user_calendar_entry.cs" />
-    <Compile Include="Models\Organisation-model.cs" />
+    <Compile Include="Dal\Organisation-model.cs" />
     <Compile Include="Models\s_user.cs" />
     <Compile Include="Models\t_days.cs" />
     <Compile Include="Models\t_half_hours.cs" />

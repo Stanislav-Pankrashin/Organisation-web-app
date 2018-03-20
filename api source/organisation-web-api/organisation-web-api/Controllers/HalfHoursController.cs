@@ -15,15 +15,16 @@ namespace organisation_web_api.Controllers
         // GET: api/HalfHours
         public IEnumerable<t_half_hours> Get()
         {
-            //return new string[] { "value1", "value2" };
-            //return db.t_half_hours;
-            return db.t_half_hours.Select(s => s).ToList();
+            return db.t_half_hours.Select(s => s)
+                                  .ToList();
         }
 
         // GET: api/HalfHours/5
-        public string Get(int id)
+        public IEnumerable<t_half_hours> Get(int id)
         {
-            return "value";
+            return db.t_half_hours.Where(s => s.half_hour_id == id)
+                                  .Select(s => s)
+                                  .ToList();
         }
 
         // POST: api/HalfHours
