@@ -4,6 +4,6 @@ This project is going to be a fully operational full stack website that will all
 
 # Technologies
 
-Microsoft SQL server for Database
-ASP.Net API
-Angular2 Front-end
+* Microsoft SQL server for Database
+* ASP.Net API
+* Angular2 Front-end
