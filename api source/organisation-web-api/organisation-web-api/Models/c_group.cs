@@ -8,12 +8,12 @@ namespace organisation_web_api.Models
 
     public partial class c_group
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public c_group()
-        {
-            c_group_calendar_entry = new HashSet<c_group_calendar_entry>();
-            c_group_relationship = new HashSet<c_group_relationship>();
-        }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //public c_group()
+        //{
+        //    c_group_calendar_entry = new HashSet<c_group_calendar_entry>();
+        //    c_group_relationship = new HashSet<c_group_relationship>();
+        //}
 
         [Key]
         public int group_id { get; set; }
@@ -44,10 +44,10 @@ namespace organisation_web_api.Models
 
         public DateTime? update_datetime { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<c_group_calendar_entry> c_group_calendar_entry { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<c_group_relationship> c_group_relationship { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<c_group_calendar_entry> c_group_calendar_entry { get; set; }
+        //
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<c_group_relationship> c_group_relationship { get; set; }
     }
 }

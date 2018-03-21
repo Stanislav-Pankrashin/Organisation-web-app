@@ -14,26 +14,17 @@ namespace organisation_web_api.Controllers
         private Organisation_model db = new Organisation_model();
 
         // GET: api/Group
-        //this shouldn't be public
-        public IEnumerable<string> Get()
+        public IEnumerable<c_group> Get()
         {
-            return new string[] { "value1", "value2" };
+            return db.c_group.Select(s => s).ToList();
         }
 
         // GET: api/Group/5
-        public IEnumerable<string> Get(string groupname)
+        public IEnumerable<c_group> Get(string groupname)
         {
             var result = db.c_group.Where( s=> s.group_name == groupname)
-                                   .Select(s => new string[] {s.group_name, s.group_desc});
-
-            if ( result == null)
-            {
-                return new string[] { "invalid_group", "groupname invalid" }.ToList();
-            }
-            else
-            {
-                return result;
-            }
+                                   .Select(s => s);
+            return result;
         }
 
         // POST: api/Group

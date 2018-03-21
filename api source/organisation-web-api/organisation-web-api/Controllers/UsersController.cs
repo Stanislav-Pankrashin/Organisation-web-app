@@ -21,20 +21,13 @@ namespace organisation_web_api.Controllers
         }
 
         // GET: api/Users/username/pw
-        public string Get(string username, string hashedpw)
+        public IEnumerable<string> Get(string username, string hashedpw)
         {
             var result = db.s_user.Where(s => s.username == username)
                                   .Where(s => s.password == hashedpw)
-                                  .Select(s => s.username.ToString());
+                                  .Select(s => s.username);
 
-            if (result == null)
-            {
-                return "Username or password incorrect";
-            }
-            else
-            {
-                return result.ToList()[0]; // convert to a list, and then get the first element
-            }
+            return result;
         }
 
         // POST: api/Users
