@@ -1,6 +1,7 @@
 ﻿using organisation_web_api.Models;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -20,10 +21,15 @@ namespace organisation_web_api.Controllers
         }
 
         // GET: api/Group/5
-        public IEnumerable<c_group> Get(string groupname)
+        public IQueryable<dynamic> Get(string groupname)
         {
             var result = db.c_group.Where( s=> s.group_name == groupname)
-                                   .Select(s => s);
+                                   .Select(s => {
+                                       var model = new Dictionary<string, string>();
+                                       model.Add("GroupName", s.group_name);
+                                       model.Add("GroupDesc", s.group_desc);
+                                       return model;
+                                       });
             return result;
         }
 
