@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.Ajax.Utilities;
+using organisation_web_api.Api_Models;
 
 namespace organisation_web_api.Controllers
 {
@@ -13,21 +15,60 @@ namespace organisation_web_api.Controllers
 
         private Organisation_model db = new Organisation_model();
 
-        // GET: api/Users
-        // this probably shouldn't be public
-        public IEnumerable<string> Get()
+        // GET: api/Users?searchterm={Searchterm}
+        public IEnumerable<UserModel> Get(string searchterm)
         {
-            return new string[] { "value1", "value2" };
+            if (searchterm.IsNullOrWhiteSpace())
+            {
+                var result = db.s_user.Select(s => new UserModel
+                {
+                    UserName = s.username
+                })
+                .ToList();
+
+                return result;
+            }
+            else
+            {
+                var result = db.s_user.Where(s => s.username.Contains(searchterm))
+                    .Select(s => new UserModel
+                    {
+                        UserName = s.username
+                    })
+                    .ToList();
+
+                return result;
+            }
         }
 
-        // GET: api/Users/username/pw
-        public IEnumerable<string> Get(string username, string hashedpw)
+        // GET: api/Users?username={username}
+        public UserModel Get(string username, string hashedpw)
         {
             var result = db.s_user.Where(s => s.username == username)
-                                  .Where(s => s.password == hashedpw)
-                                  .Select(s => s.username);
+                .ToList()
+                .Select(s =>
+                {
+                    var model = new UserModel
+                    {
+                        UserName = s.username
+                    };
+                    return model;
+                });
 
-            return result;
+            UserModel output;
+            try
+            {
+                output = result.First();
+            }
+            catch (Exception e)
+            {
+                output = new UserModel
+                {
+                    UserName = "Username does not exist"
+                };
+            }
+
+            return output;
         }
 
         // POST: api/Users

@@ -6,31 +6,54 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using organisation_web_api.Api_Models;
 
 namespace organisation_web_api.Controllers
 {
     public class GroupController : ApiController
     {
 
-        private Organisation_model db = new Organisation_model();
+        private readonly Organisation_model db = new Organisation_model();
 
         // GET: api/Group
-        public IEnumerable<c_group> Get()
+        public IEnumerable<GroupModel> Get()
         {
-            return db.c_group.Select(s => s).ToList();
+            return db.c_group.Select(s => new GroupModel
+            {
+                GroupName = s.group_name,
+                GroupDesc = s.group_desc
+            }).ToList();
         }
 
-        // GET: api/Group/5
-        public IQueryable<dynamic> Get(string groupname)
+        // GET: api/Group?groupname = {groupname}
+        public GroupModel Get(string groupname)
         {
-            var result = db.c_group.Where( s=> s.group_name == groupname)
-                                   .Select(s => {
-                                       var model = new Dictionary<string, string>();
-                                       model.Add("GroupName", s.group_name);
-                                       model.Add("GroupDesc", s.group_desc);
+            var result = db.c_group.Where(s => s.group_name == groupname)
+                                   .ToList()
+                                   .Select(s =>
+                                   {
+                                       var model = new GroupModel
+                                       {
+                                           GroupName = s.group_name,
+                                           GroupDesc = s.group_desc
+                                       };
                                        return model;
-                                       });
-            return result;
+                                   });
+            GroupModel output;
+            try
+            {
+                output = result.First();
+            }
+            catch (Exception e)
+            {
+                output = new GroupModel
+                {
+                    GroupName = "Invalid",
+                    GroupDesc = "Invalid"
+                };
+            }
+
+            return output;
         }
 
         // POST: api/Group
