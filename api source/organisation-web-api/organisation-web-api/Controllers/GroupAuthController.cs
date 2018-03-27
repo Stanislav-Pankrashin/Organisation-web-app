@@ -22,27 +22,27 @@ namespace organisation_web_api.Controllers
         // GET: api/GroupAuth/5
         public GroupModel Get(string groupname, string hashedpw)
         {
-            var result = db.c_group.Where(s => s.group == username && s.password == hashedpw)
+            var result = db.c_group.Where(s => s.group_name == groupname && s.group_password == hashedpw)
                 .ToList()
                 .Select(s =>
                 {
-                    var model = new UserModel
+                    var model = new GroupModel
                     {
-                        UserName = s.username
+                        GroupName = s.group_name,
                     };
                     return model;
                 });
 
-            UserModel output;
+            GroupModel output;
             try
             {
                 output = result.First();
             }
             catch (Exception e)
             {
-                output = new UserModel
+                output = new GroupModel
                 {
-                    UserName = "Password or Username is incorrect"
+                    GroupName = "Password or Username is incorrect"
                 };
             }
 
