@@ -6,14 +6,15 @@ namespace organisation_web_api.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("dbo.t_times")]
     public partial class t_times
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public t_times()
-        {
-            c_group_calendar_entry = new HashSet<c_group_calendar_entry>();
-            c_user_calendar_entry = new HashSet<c_user_calendar_entry>();
-        }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //public t_times()
+        //{
+        //    c_group_calendar_entry = new HashSet<c_group_calendar_entry>();
+        //    c_user_calendar_entry = new HashSet<c_user_calendar_entry>();
+        //}
 
         [Key]
         public int time_id { get; set; }
@@ -40,16 +41,16 @@ namespace organisation_web_api.Models
 
         public DateTime? update_datetime { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<c_group_calendar_entry> c_group_calendar_entry { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<c_user_calendar_entry> c_user_calendar_entry { get; set; }
-
-        public virtual t_days t_days { get; set; }
-
-        public virtual t_half_hours t_half_hours { get; set; }
-
-        public virtual t_half_hours t_half_hours1 { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<c_group_calendar_entry> c_group_calendar_entry { get; set; }
+        //
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<c_user_calendar_entry> c_user_calendar_entry { get; set; }
+        //
+        //public virtual t_days t_days { get; set; }
+        //
+        //public virtual t_half_hours t_half_hours { get; set; }
+        //
+        //public virtual t_half_hours t_half_hours1 { get; set; }
     }
 }

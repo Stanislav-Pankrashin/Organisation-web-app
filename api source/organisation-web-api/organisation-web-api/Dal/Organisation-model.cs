@@ -193,22 +193,22 @@ namespace organisation_web_api.Models
             //    .WithOptional(e => e.t_half_hours1)
             //    .HasForeignKey(e => e.half_hour_id_end);
             //
-            //modelBuilder.Entity<t_times>()
-            //    .Property(e => e.insert_user)
-            //    .IsUnicode(false);
-            //
-            //modelBuilder.Entity<t_times>()
-            //    .Property(e => e.insert_process)
-            //    .IsUnicode(false);
-            //
-            //modelBuilder.Entity<t_times>()
-            //    .Property(e => e.update_user)
-            //    .IsUnicode(false);
-            //
-            //modelBuilder.Entity<t_times>()
-            //    .Property(e => e.update_process)
-            //    .IsUnicode(false);
-            //
+            modelBuilder.Entity<t_times>()
+                .Property(e => e.insert_user)
+                .IsUnicode(false);
+            
+            modelBuilder.Entity<t_times>()
+                .Property(e => e.insert_process)
+                .IsUnicode(false);
+            
+            modelBuilder.Entity<t_times>()
+                .Property(e => e.update_user)
+                .IsUnicode(false);
+            
+            modelBuilder.Entity<t_times>()
+                .Property(e => e.update_process)
+                .IsUnicode(false);
+            
             //modelBuilder.Entity<t_times>()
             //    .HasMany(e => e.c_group_calendar_entry)
             //    .WithRequired(e => e.t_times)
