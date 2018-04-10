@@ -92,36 +92,6 @@ namespace organisation_web_api.Controllers
         // POST: api/Time
         public void Post(/*[FromBody]string value*/ string username, int dayId, int startId, int endId)
         {
-            using (Organisation_model db = new Organisation_model())
-            {
-                // first get the user id
-                var user_id = db.s_user.Where(s => s.username == username)
-                    .Select(s => s.user_id)
-                    .ToList()
-                    .First();
-
-
-
-                // first insert the new time
-                t_times new_time = new t_times
-                {
-                    day_id = dayId,
-                    half_hour_id_start = startId,
-                    half_hour_id_end = endId,
-                    insert_user = username,
-                    insert_process = "user put",
-                    insert_datetime = DateTime.Now
-                };
-
-                db.t_times.Add(new_time);
-
-
-
-
-                db.SaveChangesAsync();
-
-            }
-
         }
 
         // PUT: api/Time/5

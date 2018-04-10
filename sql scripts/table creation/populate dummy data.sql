@@ -116,5 +116,22 @@ SELECT 1,
 	   'creation',
 	   GETDATE()
 
+INSERT dbo.t_user_time
+(
+user_id
+,day_id
+,half_hour_id_start
+,half_hour_id_end
+,insert_user
+,insert_process
+,insert_datetime)
+SELECT 1,
+       4, 
+	   3, 
+	   7, 
+	   'stanislav', 
+	   'creation', 
+	   GETDATE()
+
 
 ROLLBACK

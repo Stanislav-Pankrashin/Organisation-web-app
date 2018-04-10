@@ -192,9 +192,11 @@
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HalfHoursController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TimeController.cs" />
+    <Compile Include="Controllers\TimesController.cs" />
     <Compile Include="Controllers\UserAuthController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\UserTimeController.cs" />
+    <Compile Include="Api_Models\UserTimeModel.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -206,8 +208,10 @@
     <Compile Include="Dal\Organisation-model.cs" />
     <Compile Include="Models\s_user.cs" />
     <Compile Include="Models\t_days.cs" />
+    <Compile Include="Models\t_group_time.cs" />
     <Compile Include="Models\t_half_hours.cs" />
     <Compile Include="Models\t_times.cs" />
+    <Compile Include="Models\t_user_time.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -20,6 +20,8 @@ namespace organisation_web_api.Models
         public virtual DbSet<t_days> t_days { get; set; }
         public virtual DbSet<t_half_hours> t_half_hours { get; set; }
         public virtual DbSet<t_times> t_times { get; set; }
+        public virtual DbSet<t_user_time> t_user_time { get; set; }
+        public virtual DbSet<t_group_time> t_group_time { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
