@@ -56,9 +56,69 @@ namespace organisation_web_api.Controllers
             return output;
         }
 
-        // POST: api/Group
-        public void Post([FromBody]string value)
+
+        public IEnumerable<UserModel> get(string groupname, string hashedpw)
         {
+        }
+
+
+        // POST: api/Group
+        // this adds a user to a group
+        public string Post(string username, string userpass, string groupname, string hashedpw)
+        {
+            // first check to see if a user has the correct pw
+            var group = db.c_group.Where(s => s.group_name == groupname && s.group_password == hashedpw)
+                .Select(s => s)
+                .ToList();
+
+
+            c_group target_group;
+            try
+            {
+                target_group = group.First();
+
+            }
+            catch (Exception e)
+            {
+                return "group name or password incorrect";
+            }
+
+            // then check to see if the user credentials are correct
+
+            var user = db.s_user.Where(s => s.username == username && s.password == userpass)
+                .Select(s => s);
+
+            s_user user_output;
+            try
+            {
+                user_output = user.First();
+            }
+            catch (Exception e)
+            {
+                return "username or password incorrect";
+            }
+
+            // then, add the relationship
+
+            var new_rel = new c_group_relationship
+            {
+                user_id = user_output.user_id,
+                group_id = target_group.group_id,
+                insert_user = username,
+                insert_process = "ADDGRPREL",
+                insert_datetime = DateTime.Now,
+                update_user = null,
+                update_process = null,
+                update_datetime = null
+
+            };
+
+            db.c_group_relationship.Add(new_rel);
+
+            db.SaveChanges();
+
+            return "success";
+
         }
 
         // PUT: api/Group/5

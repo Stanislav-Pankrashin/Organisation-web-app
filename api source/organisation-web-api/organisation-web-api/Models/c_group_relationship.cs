@@ -31,8 +31,8 @@ namespace organisation_web_api.Models
 
         public DateTime? update_datetime { get; set; }
 
-        public virtual c_group c_group { get; set; }
-
-        public virtual s_user s_user { get; set; }
+        //public virtual c_group c_group { get; set; }
+        //
+        //public virtual s_user s_user { get; set; }
     }
 }

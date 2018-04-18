@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Organisation_Data_Connection-Web.config Connection String" description="Organisation_Data_Connection Connection String used in web.config by the application to access the database." defaultValue="data source=organisation-prod.database.windows.net;initial catalog=organisation-sql;persist security info=True;user id=stanislav;password=Airbear123;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\stase\\Documents\\GitHub\\Organisation-web-app\\api\ source\\organisation-web-api\\organisation-web-api\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Organisation_Data_Connection']/@connectionString" />
+  </parameter>
+</parameters>
