@@ -7,8 +7,8 @@ namespace organisation_web_api.Controllers
 {
     public class WorkingTimeModel
     {
-        public string day { get; set; }
-        public string half_hour_start { get; set; }
-        public string half_hour_end { get; set; }
+        public int day { get; set; }
+        public int half_hour_start { get; set; }
+        public int half_hour_end { get; set; }
     }
 }

@@ -59,6 +59,7 @@ namespace organisation_web_api.Controllers
 
         public IEnumerable<UserModel> get(string groupname, string hashedpw)
         {
+            return new UserModel[1];
         }
 
 

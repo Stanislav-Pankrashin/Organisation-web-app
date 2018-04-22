@@ -1,0 +1,6 @@
+C:\Users\stase\Documents\GitHub\Organisation-web-app\api source\organisation-web-api\organisation-web-api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\stase\Documents\GitHub\Organisation-web-app\api source\organisation-web-api\organisation-web-api\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\stase\Documents\GitHub\Organisation-web-app\api source\organisation-web-api\organisation-web-api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\stase\Documents\GitHub\Organisation-web-app\api source\organisation-web-api\organisation-web-api\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\stase\Documents\GitHub\Organisation-web-app\api source\organisation-web-api\organisation-web-api\bin\roslyn\System.IO.Compression.dll
+C:\Users\stase\Documents\GitHub\Organisation-web-app\api source\organisation-web-api\organisation-web-api\bin\roslyn\VBCSCompiler.exe
