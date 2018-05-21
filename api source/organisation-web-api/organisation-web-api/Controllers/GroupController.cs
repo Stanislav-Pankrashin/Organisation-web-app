@@ -59,7 +59,17 @@ namespace organisation_web_api.Controllers
 
         public IEnumerable<UserModel> get(string groupname, string hashedpw)
         {
-            return new UserModel[1];
+            // get all of the users associated with the group
+            var users = from g in db.c_group
+                             join gr in db.c_group_relationship on g.group_id equals gr.group_id
+                             join u in db.s_user on gr.user_id equals u.user_id
+                             where g.group_name == groupname && g.group_password == hashedpw 
+                             select new UserModel
+                             {
+                                 UserName = u.username
+                             };
+
+            return users;
         }
 
 

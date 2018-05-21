@@ -1,11 +1,12 @@
-SELECT * FROM s_user
-SELECT * FROM c_group
-SELECT * FROM t_half_hours
-SELECT * FROM t_days
-SELECT * FROM c_group_relationship
-SELECT * FROM c_user_calendar_entry
-SELECT * FROM c_group_calendar_entry
-SELECT * FROM t_times
+SELECT 's_user', * FROM s_user
+SELECT 'c_group', * FROM c_group
+SELECT 't_half_hours', * FROM t_half_hours
+SELECT 't_days', * FROM t_days
+SELECT 'c_group_relationship', * FROM c_group_relationship
+SELECT 'c_user_calendar_entry', * FROM c_user_calendar_entry
+SELECT 'c_group_calendar_entry', * FROM c_group_calendar_entry
+SELECT 't_user_time', * FROM t_user_time
+SELECT 't_group_time', * FROM t_group_time
 
 
 SELECT u.username, 
